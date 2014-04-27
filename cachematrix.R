@@ -3,7 +3,6 @@
 ## the same matrix in needed again. The used matrix must be invertible.
 
 
-
 ## Creates a list of functions for the provided matrix which make the
 ## caching of the inversion of the matrix possible.
 ## In an object oriented view, the matrix is wrapped in a new obejct
@@ -16,8 +15,8 @@ makeCacheMatrix <- function(x = matrix()) {
         getMatrix <- function(){
                 currentMatrix
         }
-        ## This function sets the parameter as the new value for the matrix. This also invalidates the cached
-        ## value for the inversion.
+        ## This function sets the parameter as the new value for the matrix.
+        ## This also invalidates the cached value for the inversion.
         setMatrix <- function(newMatrix){
                 currentMatrix <<- newMatrix
                 cachedInversion <<- NULL
@@ -28,7 +27,10 @@ makeCacheMatrix <- function(x = matrix()) {
         setCachedInversion <- function(inversion){
                 cachedInversion <<- inversion
         }
-        list(getMatrix=getMatrix,setMatrix=setMatrix,getCachedInversion=getCachedInversion,setCachedInversion=setCachedInversion)
+        list(getMatrix=getMatrix,
+             setMatrix=setMatrix,
+             getCachedInversion=getCachedInversion,
+             setCachedInversion=setCachedInversion)
 }
 
 
